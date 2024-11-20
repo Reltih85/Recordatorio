@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="light-mode">
+  <div class="dashboard-container" style="background-image: url('images/background.jpg');">
+    <!-- Sidebar (Menú Lateral) -->
+    <aside class="sidebar">
+      <div class="user-profile">
+        <img src="images/profile-placeholder.png" alt="Usuario" class="profile-pic">
+        <h2><a href="profile.html">Nombre del Usuario</a></h2>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="home.html" class="active">Inicio</a></li>
+          <li><a href="profile.html">Perfil</a></li>
+          <li><a href="reminders.html">Recordatorios</a></li>
+          <li><a href="settings.html">Configuración</a></li>
+        </ul>
+      </nav>
+      <button id="themeToggle">Cambiar Modo</button>
+      <button id="logoutButton">Cerrar Sesión</button>
+    </aside>
+
+    <!-- Contenido Principal -->
+    <main class="main-content">
+      <section class="dashboard-section">
+        <h3>Bienvenido al Panel de Recordatorios</h3>
+        <p>Aquí tienes una vista general de tus actividades.</p>
+
+        <!-- Tarjetas Resumen -->
+        <div class="stats-cards">
+          <div class="card">
+            <h4>Total de Recordatorios</h4>
+            <p>45</p>
+          </div>
+          <div class="card">
+            <h4>Recordatorios Completados</h4>
+            <p>30</p>
+          </div>
+          <div class="card">
+            <h4>Recordatorios Pendientes</h4>
+            <p>15</p>
+          </div>
+        </div>
+
+        <!-- Gráfico de Tareas -->
+        <div class="chart-container">
+          <canvas id="remindersChart"></canvas>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/theme-toggle.js"></script>
+  <script>
+    // Inicialización de gráfico de recordatorios con Chart.js
+    const ctx = document.getElementById('remindersChart').getContext('2d');
+    const remindersChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Completados', 'Pendientes'],
+        datasets: [{
+          data: [30, 15], // Datos de ejemplo
+          backgroundColor: ['#3498db', '#e74c3c'],
+          borderWidth: 0,
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          },
+        },
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configuración</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="light-mode">
+  <div class="dashboard-container" style="background-image: url('images/background.jpg');">
+    <!-- Sidebar (Menú Lateral) -->
+    <aside class="sidebar">
+      <div class="user-profile">
+        <img src="images/profile-placeholder.png" alt="Usuario" class="profile-pic">
+        <h2><a href="profile.html">Nombre del Usuario</a></h2>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="home.html">Inicio</a></li>
+          <li><a href="profile.html">Perfil</a></li>
+          <li><a href="reminders.html">Recordatorios</a></li>
+          <li><a href="settings.html" class="active">Configuración</a></li>
+        </ul>
+      </nav>
+      <button id="themeToggle">Cambiar Modo</button>
+      <button id="logoutButton">Cerrar Sesión</button>
+    </aside>
+
+    <!-- Contenido Principal -->
+    <main class="main-content">
+      <section class="dashboard-section">
+        <h3>Configuración</h3>
+        <p>Ajusta tus preferencias aquí:</p>
+        <div class="settings-options">
+          <label>
+            <input type="checkbox" id="notifications" checked>
+            Notificaciones
+          </label>
+          <label>
+            <input type="checkbox" id="darkMode" onchange="toggleTheme()">
+            Modo Oscuro
+          </label>
+          <button class="save-settings-button">Guardar Configuración</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/theme-toggle.js"></script>
+</body>
+</html>
